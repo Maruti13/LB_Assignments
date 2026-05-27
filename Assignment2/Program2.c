@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+void Display(int iNo)
+{
+    // Write updater
+
+    while(iNo > 0)
+    {
+        printf(" * ");
+        iNo--;
+    }
+    
+    printf("\n");
+}
+
+int main ()
+{
+    int iValue = 0;
+
+    printf("Enter number : ");
+    scanf("%d",&iValue);
+
+    Display(iValue);
+
+    return 0;
+}
