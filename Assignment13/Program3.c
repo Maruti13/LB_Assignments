@@ -1,30 +1,49 @@
+// Time Complexity : N
+
 #include<stdio.h>
+#include<stdlib.h>
 
-int KMtoMeter(int iNo)
+void Display(int Arr[], int iLength)
 {
-    if(iNo < 0)
+    int iCnt = 0;
+
+    printf("Numbers Divisible by 5 and are even are : \n");
+
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return -1;
+        if(Arr[iCnt] % 2 == 0 && Arr[iCnt] % 5 == 0)
+        {
+            printf("%d\n",Arr[iCnt]);
+        }
     }
-
-    int iConvert = 0;
-
-    iConvert = iNo * 1000;
-
-    return iConvert;
 }
 
 int main ()
 {
-    int iValue = 0;
-    int iRet = 0;
+    int iSize = 0, iRet = 0, iCnt = 0;
+    int *p = NULL;
 
-    printf("Enter Distance : ");
-    scanf("%d",&iValue);
+    printf("Enter number of elements : ");
+    scanf("%d",&iSize);
 
-    iRet = KMtoMeter(iValue);
+    p = (int*)malloc(iSize * sizeof(int));
 
-    printf("%d\n",iRet);
+    if(p == NULL)
+    {
+        printf("Unable to allocate memory\n");
+        return -1;
+    }
+
+    printf("Enter elements : \n");
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        scanf("%d",&p[iCnt]);
+    }
+
+    Display(p, iSize);
+
+    free(p);
 
     return 0;
 }

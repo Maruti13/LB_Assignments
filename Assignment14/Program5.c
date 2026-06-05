@@ -3,38 +3,32 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Difference(int Arr[], int iLength)
+int Frequency(int Arr[], int iLength, int iNo)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
+    int iCountNo = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == iNo)
         {
-            iSumEven = iSumEven + Arr[iCnt];
-        }
-
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            iCountNo++;
         }
     }
 
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
+    return iCountNo;
 }
 
 int main ()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iRet = 0, iCnt = 0, iValue = 0;
     int *p = NULL;
 
     printf("Enter number of elements : ");
     scanf("%d",&iSize);
+
+    printf("Enter the number : ");
+    scanf("%d",&iValue);
 
     p = (int*)malloc(iSize * sizeof(int));
 
@@ -51,7 +45,7 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
+    iRet = Frequency(p, iSize, iValue);
 
     printf("Result is %d\n",iRet);
 

@@ -3,29 +3,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Difference(int Arr[], int iLength)
+int Smallest(int Arr[], int iLength)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
+    int iSmall = Arr[0];
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] < iSmall)
         {
-            iSumEven = iSumEven + Arr[iCnt];
-        }
-
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            iSmall = Arr[iCnt];
         }
     }
 
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
+    return iSmall;
 }
 
 int main ()
@@ -51,9 +42,9 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
+    iRet = Smallest(p, iSize);
 
-    printf("Result is %d\n",iRet);
+    printf("Smallest Number is : %d\n",iRet);
 
     free(p);
 

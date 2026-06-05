@@ -2,36 +2,29 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#define TRUE 1
+#define FALSE 0
 
-int Difference(int Arr[], int iLength)
+typedef int BOOL;
+
+BOOL Check(int Arr[],int iLength)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == 11)
         {
-            iSumEven = iSumEven + Arr[iCnt];
-        }
-
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            return TRUE;
         }
     }
-
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
 }
 
 int main ()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0;
     int *p = NULL;
+    BOOL bRet = FALSE;
 
     printf("Enter number of elements : ");
     scanf("%d",&iSize);
@@ -51,9 +44,17 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
+    bRet = Check(p, iSize);
 
-    printf("Result is %d\n",iRet);
+    if(bRet == TRUE)
+    {
+        printf("11 is Present\n");
+    }
+
+    else
+    {
+        printf("11 is Absent\n");
+    }
 
     free(p);
 

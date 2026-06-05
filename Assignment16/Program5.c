@@ -3,29 +3,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Difference(int Arr[], int iLength)
+void DigitsSum(int Arr[], int iLength)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
+    int iDigit = 0;
+
+    printf("Summation of Digits of Numbers are : \n");
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        int iSum = 0;
+        int iTemp = Arr[iCnt];
+
+        while(iTemp != 0)
         {
-            iSumEven = iSumEven + Arr[iCnt];
+            iDigit = iTemp % 10;
+            iSum = iSum + iDigit;
+            iTemp = iTemp / 10;
         }
 
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
-        }
+        printf("%d\n",iSum);
     }
-
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
 }
 
 int main ()
@@ -51,9 +49,7 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
-
-    printf("Result is %d\n",iRet);
+    DigitsSum(p, iSize);
 
     free(p);
 

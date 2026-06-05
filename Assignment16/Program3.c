@@ -6,25 +6,24 @@
 int Difference(int Arr[], int iLength)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
+    int iMax = Arr[0];
+    int iMin = Arr[0];
     int iDiff = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] > iMax)
         {
-            iSumEven = iSumEven + Arr[iCnt];
+            iMax = Arr[iCnt];
         }
 
-        else
+        if(Arr[iCnt] < iMin)
         {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            iMin = Arr[iCnt];
         }
     }
 
-    iDiff = iSumEven - iSumOdd;
-    
+    iDiff = iMax - iMin;
     return iDiff;
 }
 
@@ -53,7 +52,7 @@ int main ()
 
     iRet = Difference(p, iSize);
 
-    printf("Result is %d\n",iRet);
+    printf("Difference between Larget and Smallest Number is : %d\n",iRet);
 
     free(p);
 

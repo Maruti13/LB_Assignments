@@ -3,38 +3,34 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Difference(int Arr[], int iLength)
+int Range(int Arr[], int iLength, int iStart, int iEnd)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == iNo)
         {
-            iSumEven = iSumEven + Arr[iCnt];
-        }
-
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            return iCnt;
         }
     }
 
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
+    return -1;
 }
 
 int main ()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iRet = 0, iCnt = 0, iValue1 = 0, iValue2 = 0;
     int *p = NULL;
 
     printf("Enter number of elements : ");
     scanf("%d",&iSize);
+
+    printf("Enter the Starting Point : ");
+    scanf("%d",&iValue1);
+
+    printf("Enter the Ending Point : ");
+    scanf("%d",&iValue2);
 
     p = (int*)malloc(iSize * sizeof(int));
 
@@ -51,9 +47,7 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
-
-    printf("Result is %d\n",iRet);
+    iRet = FirstOcc(p, iSize, iValue1, iValue2);
 
     free(p);
 

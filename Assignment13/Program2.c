@@ -1,29 +1,49 @@
+// Time Complexity : N
+
 #include<stdio.h>
+#include<stdlib.h>
 
-double RectArea(float fWidth, float fHeight)
+void Display(int Arr[], int iLength)
 {
-    double dArea = 0.0;
+    int iCnt = 0;
 
-    dArea = fWidth * fHeight;
+    printf("Numbers Divisible by 5 are : \n");
 
-    return dArea;
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        if(Arr[iCnt] % 5 == 0)
+        {
+            printf("%d\n",Arr[iCnt]);
+        }
+    }
 }
 
 int main ()
 {
-    float fValue1 = 0.0f;
-    float fValue2 = 0.0f;
-    double dRet = 0.0;
+    int iSize = 0, iRet = 0, iCnt = 0;
+    int *p = NULL;
 
-    printf("Enter Width : ");
-    scanf("%f",&fValue1);
+    printf("Enter number of elements : ");
+    scanf("%d",&iSize);
 
-    printf("Enter Height : ");
-    scanf("%f",&fValue2);
+    p = (int*)malloc(iSize * sizeof(int));
 
-    dRet = RectArea(fValue1, fValue2);
+    if(p == NULL)
+    {
+        printf("Unable to allocate memory\n");
+        return -1;
+    }
 
-    printf("Area of Rectangle is : %f\n",dRet);
+    printf("Enter elements : \n");
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        scanf("%d",&p[iCnt]);
+    }
+
+    Display(p, iSize);
+
+    free(p);
 
     return 0;
 }

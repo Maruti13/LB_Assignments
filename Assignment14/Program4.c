@@ -3,29 +3,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Difference(int Arr[], int iLength)
+int Frequency(int Arr[], int iLength)
 {
     int iCnt = 0;
-    int iSumEven = 0;
-    int iSumOdd = 0;
-    int iDiff = 0;
+    int iCountEleven = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == 11)
         {
-            iSumEven = iSumEven + Arr[iCnt];
-        }
-
-        else
-        {
-            iSumOdd = iSumOdd + Arr[iCnt];
+            iCountEleven++;
         }
     }
 
-    iDiff = iSumEven - iSumOdd;
-    
-    return iDiff;
+    return iCountEleven;
 }
 
 int main ()
@@ -51,7 +42,7 @@ int main ()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
+    iRet = Frequency(p, iSize);
 
     printf("Result is %d\n",iRet);
 
