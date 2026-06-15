@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 class Logic
 {
@@ -19,7 +18,7 @@ class Logic
     }
 }
 
-class Program4
+class Program1
 {
     public static void main(String A[])
     {

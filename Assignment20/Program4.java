@@ -1,29 +1,23 @@
-import java.util.Scanner;
 
 class Logic
 {
-    void checkPrime(int iNum)
+    void findLargestDigit(int iNum)
     {
-        int iCnt = 0;
-        int iCount = 0;
+        int iMax = 0;
+        int iDigit = 0;
 
-        for(iCnt = 1; iCnt <= iNum; iCnt++)
+        while(iNum > 0)
         {
-            if(iNum % iCnt == 0)
+            iDigit = iNum % 10;
+            if(iDigit > iMax)
             {
-                iCount = iCount + 1;
+                iMax = iDigit;
             }
+
+            iNum = iNum / 10;
         }
 
-        if(iCount == 2)
-        {
-            System.out.println("Number is Prime");
-        }
-
-        else 
-        {
-            System.out.println("Number is not Prime");
-        }
+        System.out.println("Maximum Number is : "+iMax);
     }
 }
 
@@ -32,6 +26,6 @@ class Program4
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        lobj.checkPrime(7);  
+        lobj.findLargestDigit(86452);  
     }
 }

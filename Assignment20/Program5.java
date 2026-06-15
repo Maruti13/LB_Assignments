@@ -1,26 +1,25 @@
-import java.util.Scanner;
 
 class Logic
 {
-    void checkSign(int iNum)
+    void findSmallestDigit(int iNum)
     {
-        int iCnt = 0;
+        int iMin = 0;
+        int iDigit = 0;
         
-        if(iNum > 0)
+        iMin = 9;
+
+        while(iNum > 0)
         {
-            System.out.println(iNum+" is positive");
+            iDigit = iNum % 10;
+            if(iDigit < iMin)
+            {
+                iMin = iDigit;
+            }
+
+            iNum = iNum / 10;
         }
 
-        else if(iNum < 0)
-        {
-            System.out.println(iNum+" is negative");
-        }
-
-        else
-        {
-            System.out.println(iNum+" is zero");
-        }
-
+        System.out.println("Maximum Number is : "+iMin);
     }
 }
 
@@ -29,6 +28,6 @@ class Program5
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        lobj.checkSign(-8);  
+        lobj.findSmallestDigit(86452);  
     }
 }

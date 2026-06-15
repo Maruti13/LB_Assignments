@@ -9,7 +9,7 @@ class Logic
         
         for (iCnt = 1; iCnt <= iNum / 2; iCnt++)
         {
-            if (number % i == 0) 
+            if (iNum % iCnt == 0) 
             {
                 iSum = iSum + iCnt; 
             }
