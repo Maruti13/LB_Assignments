@@ -2,10 +2,10 @@
     INPUT  : iRow = 5 , iCol = 5
     
     OUTPUT : $ * * * *
-             * $ * * *
-             * * $ * *
-             * * * $ *
-             * * * * $
+             # $ * * *
+             # # $ * *
+             # # # $ *
+             # # # # $
 
 */         
 
@@ -30,6 +30,11 @@ void Pattern(int iRow, int iCol)
             if(j == i)
             {
                 printf("$\t");
+            }
+
+            else if(i > j)
+            {
+                printf("#\t");
             }
 
             else
